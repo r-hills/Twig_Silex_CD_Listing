@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>CD List</title>
+</head>
+<body>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-3'>
+                <form action='/'>
+                    <button type='submit'>Return to search</button>
+                </form>
+            </div>
+            <div class='col-md-3'>
+                <form action='/delete_all'>
+                    <button type='submit'>Delete all listings</button>
+                </form>
+            </div>
+        </div>
+            <h1>CD List:</h1>
+            {% if cd_list is not empty %}
+
+                {% for cd in cd_list %}
+				
+					<div class='row'>
+						<div class='col-md-4' --><strong>{{ cd.getTitle }}</strong></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-4' --><img src='{{ cd.getCoverArt }}'</img></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-4' -->By {{ cd.getArtist }}</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-4' -->Price ${{ cd.getPrice }}</div>
+					</div>
+					<br><br>
+							
+                {% endfor %}
+
+            {% else %}
+
+                <p> No cars available </p>
+
+            {% endif %}
+    </div>
+</body>
+</html>
